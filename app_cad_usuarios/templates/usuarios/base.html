@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titulo %}Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2 class="logo">Cadastre-me</h2>
+
+        <nav>
+            <a href="{% url 'dashboard' %}">🏠 Dashboard</a>
+            <a href="{% url 'home' %}">➕ Novo Cadastro</a>
+            <a href="{% url 'listagem_usuarios' %}">👤 Usuários</a>
+        </nav>
+    </aside>
+
+    <!-- Conteúdo -->
+    <div class="content">
+        <header class="topbar">
+            <h1>{% block titulo_pagina %}Dashboard{% endblock %}</h1>
+        </header>
+
+        <main class="main-content">
+            {% block conteudo %}
+            {% endblock %}
+        </main>
+    </div>
+
+</div>
+
+</body>
+</html>

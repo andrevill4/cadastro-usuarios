@@ -1,0 +1,46 @@
+{% extends 'usuarios/base.html' %}
+
+{% block titulo %}
+Dashboard
+{% endblock %}
+
+{% block titulo_pagina %}
+Dashboard
+{% endblock %}
+
+{% block conteudo %}
+
+<h2 class="titulo-dashboard">Painel Geral</h2>
+
+<div class="cards">
+
+    <div class="card">
+        <h3>Total de Usuários</h3>
+        <p class="numero">
+            {{ total_usuarios }}
+        </p>
+    </div>
+
+</div>
+
+<h3 class="subtitulo">Últimos 5 cadastrados</h3>
+
+<table class="tabela">
+    <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+    </tr>
+
+    {% for usuario in ultimos_usuarios %}
+    <tr>
+        <td>{{ usuario.nome }}</td>
+        <td>{{ usuario.idade }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="2">Nenhum usuário cadastrado ainda.</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
