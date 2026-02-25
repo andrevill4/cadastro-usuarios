@@ -1,1 +1,1 @@
-web: python manage.py migrate && python manage.py collectstatic --noinput && gunicorn projeto_cad_usuarios.wsgi
+web: python manage.py migrate && python manage.py collectstatic --noinput && gunicorn projeto_cad_usuarios.wsgi:application --bind 0.0.0.0:$PORT
